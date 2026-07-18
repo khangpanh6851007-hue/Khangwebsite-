@@ -1,24 +1,29 @@
-# 🔥 Hệ Thống Đặt Hàng Heo Quay Tự Động - Tùng Quay Heo 
+# 📦 Tùng Quay Heo - Ứng Dụng Hợp Nhất 1-File (v10.9)
 
-Website giới thiệu thực đơn, dịch vụ gia công và hệ thống lên đơn hàng tự động, tối ưu điều hướng chuyển thẳng dữ liệu đơn về **Zalo** hoặc **Facebook Messenger** của chủ lò mà không cần sử dụng hệ thống máy chủ (Serverless).
-
----
-
-## ⚡ Tính Năng Nổi Bật
-
-*   **Giao diện chuẩn di động (Responsive):** Phát triển trên nền tảng Tailwind CSS, hiển thị mượt mà trên mọi kích thước màn hình từ điện thoại Android, iOS cho đến máy tính.
-*   **Giỏ hàng động (Dynamic Cart):** Khách hàng có thể thêm món, tăng giảm số lượng, tính tổng tiền trực tiếp tức thì bằng JavaScript thuần.
-*   **Bộ lọc danh mục thông minh:** Phân loại nhanh thực đơn (Heo nguyên con, heo miếng bán ký, dịch vụ gia công) giúp khách dễ dàng lựa chọn.
-*   **Xử lý đơn hàng không cần Server:** Tự động gom thông tin khách hàng, thời gian giao nhận, quy cách chặt thịt và xuất thành chuỗi văn bản được mã hóa an toàn.
-*   **Chuyển tiếp đa kênh tự động:** Cho phép khách hàng gửi duyệt đơn qua Zalo hoặc Messenger chỉ bằng một cú chạm (Auto-fill message).
+Dự án thiết kế một hệ thống gọi món, tương tác cộng đồng và gửi đơn hàng trực tuyến dành riêng cho cửa hàng gia công heo quay. Toàn bộ mã nguồn bao gồm **Giao diện (HTML), Thẩm mỹ (CSS), Tính năng (JavaScript) và Kết nối dữ liệu (Firebase)** được hợp nhất 100% vào trong **một file duy nhất** (ví dụ: `index.html`).
 
 ---
 
-## 🛠️ Hướng Dẫn Cấu Hình (Dành Cho Chủ Lò)
+## 🚀 Lợi Ích Của Thiết Kế "Một File Duy Nhất"
 
-Để hệ thống gửi đơn về đúng tài khoản cá nhân của bạn, hãy mở file `index.html` và tìm đến dòng **từ 19 đến 22** để thay đổi thông tin cấu hình:
+*   **Không cần cài đặt phức tạp:** Không tốn dung lượng hosting, không cần cài đặt Node.js hay Build Tools.
+*   **Chạy mượt trên di động:** Bạn có thể copy file này vào điện thoại Android, mở bằng ứng dụng **Acode** hoặc chạy qua server **Pydroid 3** là ứng dụng hoạt động ngay lập tức.
+*   **Dễ dàng sao lưu:** Khi muốn chuyển giao hoặc cập nhật, bạn chỉ cần gửi đúng một file mã nguồn duy nhất là xong.
 
-```javascript
-// CẤU HÌNH THÔNG TIN LIÊN HỆ CỦA CHỦ LÒ
-const CONFIG_ZALO_PHONE = "0900000000";    // Thay bằng Số điện thoại đăng ký Zalo nhận đơn (viết liền)
-const CONFIG_FACEBOOK_PAGE = "HeoQuayTùng"; // Thay bằng Username (Tên định danh) của Trang/Messenger cá nhân
+---
+
+## 💻 Hướng Dẫn Chạy Mã Nguồn Trên Điện Thoại
+
+### Cách 1: Chạy trực tiếp bằng Trình Duyệt của Acode
+1. Mở ứng dụng **Acode** trên Android.
+2. Tạo một file mới, đặt tên là `index.html` và dán toàn bộ mã nguồn v10.9 vào.
+3. Nhấn vào biểu tượng **Play (Run)** ở thanh công cụ phía trên. Acode sẽ tự động kích hoạt trình duyệt nội bộ để chạy ứng dụng.
+
+### Cách 2: Tạo Máy Chủ Nội Bộ bằng Pydroid 3
+Nếu bạn muốn giả lập một môi trường website thực tế ngay trên bộ nhớ điện thoại:
+1. Lưu file code với tên `index.html` vào một thư mục bất kỳ (Ví dụ thư mục: `Download`).
+2. Mở **Pydroid 3**, chọn tính năng **Terminal** từ menu.
+3. Di chuyển vào thư mục chứa file bằng lệnh:
+   ```bash
+   cd /storage/emulated/0/Download
+   
