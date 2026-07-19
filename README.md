@@ -1,33 +1,31 @@
-# 📦 Tùng Quay Heo - Ứng Dụng Hợp Nhất 1-File HTML (v10.9)
+# 🐖 TÙNG QUAY HEO - Hệ Thống Thực Đơn Đám Mây v11.0
 
-Dự án này là một hệ thống đặt hàng, tương tác cộng đồng trực tuyến dành riêng cho cửa hàng heo quay. Toàn bộ mã nguồn bao gồm **Giao diện (HTML), Thẩm mỹ (Tailwind CSS), Icon (FontAwesome), Tính năng (JavaScript) và Kết nối dữ liệu (Firebase)** được gộp hoàn toàn vào **duy nhất một file `index.html`**.
-
----
-
-## 📱 Hướng Dẫn Chạy File Duy Nhất
-
-Để khởi chạy ứng dụng trực tiếp trên điện thoại Android bằng **Acode**, hãy làm theo các bước sau:
-
-1. **Tạo File:** Mở ứng dụng **Acode**, tạo một tệp tin mới và đặt tên chính xác là `index.html`.
-2. **Dán Code:** Sao chép toàn bộ mã nguồn hợp nhất của phiên bản **v10.9** và dán vào file vừa tạo.
-3. **Lưu File:** Nhấn vào biểu tượng **Save (Hình đĩa mềm)** để lưu lại.
-4. **Khởi Chạy:** Nhấn vào nút **Play (Mũi tên Run)** ở thanh công cụ phía trên. Acode sẽ tự động kích hoạt trình duyệt nội bộ (hoặc trình duyệt máy) để hiển thị giao diện cửa hàng heo quay ngay lập tức.
+Ứng dụng web đặt hàng heo quay da giòn và dịch vụ gia công lễ vật trực tuyến, hoạt động trên kiến trúc **Single Page Application (SPA)** hợp nhất trong **1 file HTML duy nhất**. Hệ thống tích hợp cơ sở dữ liệu đám mây Realtime Database để đồng bộ thực đơn, lưu trữ hình ảnh tải lên trực tiếp và chuyển tiếp đơn hàng tự động qua Zalo/Messenger.
 
 ---
 
-## 🛠️ Tùy Biến Hệ Thống Ngay Trong Tệp Code
+## 🚀 Tính Năng Nổi Bật (Phiên Bản v11.0)
 
-Vì mọi thứ nằm trong 1 file duy nhất, khi cần chỉnh sửa thông tin cửa hàng, bạn chỉ cần mở file trong **Acode**, tìm đến thẻ `<script>` ở phần đầu file để sửa đổi các hằng số:
+*   **Đồng Bộ Realtime Cloud:** Kết nối trực tiếp với Firebase giúp cập nhật món ăn, số lượt thích, đánh giá sao và bình luận ngay lập tức mà không cần tải lại trang.
+*   **Lưu Trữ Ảnh Trực Tiếp (Upload to Cloud):** Tích hợp công nghệ nén ảnh tự động (xuống độ phân giải 480px, chất lượng 65% JPEG) giúp tối ưu dung lượng và lưu trữ chuỗi Base64 thẳng vào Realtime Database. Không cần hosting lưu ảnh riêng biệt.
+*   **Bộ Lọc Danh Mục Thông Minh:** Phân loại thực đơn trực quan (Heo nguyên con, Heo miếng bán ký, Dịch vụ gia công) giúp khách hàng dễ dàng tìm kiếm.
+*   **Hệ Thống Tương Tác:** Khách hàng có thể thả tim (Like), đánh giá chất lượng theo số sao (1-5★) và để lại bình luận công khai dưới mỗi món ăn.
+*   **Giỏ Hàng & Form Đặt Hàng Toàn Diện:** Thu thập đầy đủ thông tin khách hàng (Tên, SĐT, Địa chỉ, Ngày/Giờ nhận hàng, Cách thức chặt heo/Gia công chuẩn lễ).
+*   **Gửi Duyệt Đơn Tự Động:** Đóng gói toàn bộ thông tin đơn hàng và chuyển tiếp nội dung trực tiếp qua API chat của **Zalo** hoặc **Facebook Messenger** tới chủ cửa hàng.
 
-### 1. Thông tin nhận đơn hàng (Zalo / Messenger)
-Hệ thống tự động đóng gói đơn hàng thành văn bản và chuyển tiếp thẳng sang ứng dụng nhắn tin:
-```javascript
-const CONFIG_ZALO_PHONE = "0900000000";       // SĐT Zalo nhận thông báo đơn hàng của bạn
-const CONFIG_FACEBOOK_PAGE = "HeoQuayPhatDat"; // Tên định danh (Username) Fanpage Facebook của bạn
-const firebaseConfig = {
-    apiKey: "AIzaSyDXI8ThxMEnuzvVFuVgZXWOfRFlvr6WnzE",
-    authDomain: "heo-quay-tung-cua-toi.firebaseapp.com",
-    databaseURL: "[https://heo-quay-tung-cua-toi-default-rtdb.firebaseio.com](https://heo-quay-tung-cua-toi-default-rtdb.firebaseio.com)",
-    projectId: "heo-quay-tung-cua-toi",
-    storageBucket: "heo-quay-tung-cua-toi.firebasestorage.app",
-};
+---
+
+## 🛠️ Hướng Dẫn Cấu Hình Hệ Thống Hạ Tầng
+
+Để ứng dụng vận hành trơn tru trên GitHub Pages hoặc chạy local, bạn cần đảm bảo cấu hình phân quyền trên **Firebase Console** đã được mở khóa:
+
+### 1. Cấu hình Quyền Đọc/Ghi (Rules)
+Truy cập vào **Firebase Console** -> **Realtime Database** -> Chọn tab **Règles (Rules)** và thay đổi cấu hình thành `true` để cấp quyền cho ứng dụng:
+
+```json
+{
+  "rules": {
+    ".read": "true",
+    ".write": "true"
+  }
+}
