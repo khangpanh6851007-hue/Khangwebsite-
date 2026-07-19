@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ Thống TÙNG QUAY HEO - Phiên Bản Hợp Nhất v10.9</title>
+    <title>TÙNG QUAY HEO - Phiên Bản Nâng Cấp v11.0</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Firebase Core & Database SDK v8.10.1 ổn định trên di động -->
+    <!-- Firebase Core & Database SDK v8.10.1 -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
@@ -34,14 +34,13 @@
 
     <script>
         // ==========================================
-        // 1. CẤU HÌNH LIÊN HỆ GỬI ĐƠN HÀNG CỦA BẠN
+        // 1. CẤU HÌNH LIÊN HỆ ĐƠN HÀNG
         // ==========================================
-        const CONFIG_ZALO_PHONE = "0900000000"; // Thay bằng SĐT Zalo nhận đơn thực tế của bạn
-        const CONFIG_FACEBOOK_PAGE = "HeoQuayPhatDat"; // Thay bằng ID/Tên Fanpage Facebook thực tế của bạn
+        const CONFIG_ZALO_PHONE = "0367574302"; 
+        const CONFIG_FACEBOOK_PAGE = "HeoQuayTungCuaToi"; 
 
         // ==========================================
-        // 2. CẤU HÌNH INTERNET DATABASE (FIREBASE CỦA KHANG)
-        // Đã cập nhật chính xác theo thông số tài khoản của bạn
+        // 2. CẤU HÌNH CLOUD DATABASE (v11.0 Hợp Nhất)
         // ==========================================
         const firebaseConfig = {
             apiKey: "AIzaSyDXI8ThxMEnuzvVFuVgZXWOfRFlvr6WnzE",
@@ -49,6 +48,9 @@
             databaseURL: "https://heo-quay-tung-cua-toi-default-rtdb.firebaseio.com",
             projectId: "heo-quay-tung-cua-toi",
             storageBucket: "heo-quay-tung-cua-toi.firebasestorage.app",
+            messagingSenderId: "538437389073",
+            appId: "1:538437389073:web:461da7d5433c7dad701ab0",
+            measurementId: "G-NV135624MQ"
         };
         
         if (!firebase.apps.length) {
@@ -65,8 +67,8 @@
             </a>
             
             <div class="flex items-center justify-between w-full md:w-auto gap-4">
-                <a href="tel:0900000000" class="text-sm md:text-base font-bold bg-amber-500 text-red-900 px-4 py-1.5 rounded-full shadow flex items-center gap-2 hover:bg-amber-400 transition">
-                    <i class="fa-solid fa-phone animate-bounce"></i> Hotline: 0367574302
+                <a href="tel:0367574302" class="text-sm md:text-base font-bold bg-amber-50 text-red-900 px-4 py-1.5 rounded-full shadow flex items-center gap-2 hover:bg-amber-400 transition">
+                    <i class="fa-solid fa-phone animate-bounce"></i> Hotline: 036.757.4302
                 </a>
                 <button id="cart-btn" class="relative bg-red-800 hover:bg-red-900 px-5 py-1.5 rounded-full font-semibold transition flex items-center gap-2 border border-red-500">
                     <i class="fa-solid fa-basket-shopping text-lg text-amber-300"></i> Đơn hàng
@@ -79,9 +81,9 @@
     <!-- Banner chính -->
     <section class="relative py-16 px-4 text-center overflow-hidden bg-cover bg-center" style="background-image: linear-gradient(rgba(153, 27, 27, 0.85), rgba(67, 20, 7, 0.9)), url('https://images.pexels.com/photos/6151241/pexels-photo-6151241.jpeg?auto=compress&cs=tinysrgb&w=1200');">
         <div class="max-w-3xl mx-auto relative z-10">
-            <span class="bg-amber-500 text-red-950 font-extrabold px-4 py-1 rounded-full text-xs uppercase tracking-widest mb-3 inline-block">Hệ Thống Thực Đơn Đám Mây v10.9</span>
+            <span class="bg-amber-500 text-red-950 font-extrabold px-4 py-1 rounded-full text-xs uppercase tracking-widest mb-3 inline-block">Hệ Thống Thực Đơn Đám Mây v11.0</span>
             <h1 class="text-3xl md:text-5xl font-black text-amber-400 mb-4 drop-shadow-lg">GIA CÔNG HEO QUAY DA GIÒN</h1>
-            <p class="text-base md:text-lg text-orange-100 mb-6 font-medium">Tùng Quay Heo , Da Giòn Chất Lượng Cao,Lên Cớm Nổ Điều .</p>
+            <p class="text-base md:text-lg text-orange-100 mb-6 font-medium">Lưu trữ ảnh tải lên đám mây trực tiếp, cập nhật Realtime tự động bảo lưu dữ liệu.</p>
         </div>
     </section>
 
@@ -99,7 +101,7 @@
         <h2 class="text-2xl font-black mb-6 text-red-800 border-l-4 border-orange-600 pl-3">Bảng Giá Đặt Hàng Trực Tuyến</h2>
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             <div class="col-span-full text-center py-12 text-stone-500 font-medium">
-                <i class="fa-solid fa-spinner animate-spin mr-2"></i> Đang tải đồng bộ cơ sở dữ liệu v10.9...
+                <i class="fa-solid fa-spinner animate-spin mr-2"></i> Đang tải đồng bộ cơ sở dữ liệu v11.0...
             </div>
         </div>
     </main>
@@ -192,18 +194,18 @@
         </div>
     </div>
 
-    <!-- Chân Trang Hạ Tầng Hệ Thống -->
+    <!-- Chân Trang Hệ Thống -->
     <footer class="bg-stone-900 text-stone-400 text-center py-8 border-t border-stone-800 mt-12 text-xs">
         <p class="font-bold text-stone-300 text-sm mb-1">TÙNG QUAY HEO CHUYÊN NGHIỆP</p>
         <p class="mb-4">&copy; 2026 Bản quyền thuộc về Tùng Quay Heo.</p>
-        <button onclick="resetCloudData()" class="bg-red-950/40 hover:bg-red-950 text-red-400 px-3 py-1.5 rounded-lg border border-red-900/60 transition text-[11px]">
-            <i class="fa-solid fa-dumpster-fire mr-1"></i> Xóa dữ liệu đám mây để đặt lại hệ thống v10.9
+        <button id="reset-btn" class="bg-red-950/40 hover:bg-red-950 text-red-400 px-3 py-1.5 rounded-lg border border-red-900/60 transition text-[11px]">
+            <i class="fa-solid fa-dumpster-fire mr-1"></i> Xóa dữ liệu đám mây để đặt lại hệ thống v11.0
         </button>
     </footer>
 
-    <!-- TOÀN BỘ LOGIC JAVASCRIPT HỢP NHẤT -->
+    <!-- TOÀN BỘ LOGIC JAVASCRIPT HỢP NHẤT v11.0 -->
     <script>
-        // Danh sách dữ liệu mẫu ban đầu nếu database trống
+        // Danh sách dữ liệu gốc mặc định ban đầu
         const defaultProducts = [
             { id: 1, name: "Heo Sữa Quay Đại Lễ (2kg - 3kg)", price: 950000, category: "nguyen-con", image: "https://loheoquaytonky.vn/upload/product/new-project-8436.png", likes: 24, rating: 5, comments: [{user: "Anh Tuấn", text: "Heo da giòn rụm, giao rất đúng giờ!"}] },
             { id: 2, name: "Heo Quay Nguyên Con Đám Hỏi (7kg-9kg)", price: 2300000, category: "nguyen-con", image: "https://images.pexels.com/photos/4106482/pexels-photo-4106482.jpeg?auto=compress&cs=tinysrgb&w=500", likes: 18, rating: 4, comments: [] },
@@ -230,8 +232,9 @@
         const checkoutForm = document.getElementById('checkout-form');
         const toggleCheckoutBtn = document.getElementById('toggle-checkout-btn');
         const submitOrderBtn = document.getElementById('submit-order-btn');
+        const resetBtn = document.getElementById('reset-btn');
 
-        // ĐỒNG BỘ DỮ LIỆU TỪ FIREBASE REALTIME CỦA RIÊNG BẠN
+        // ĐỒNG BỘ ĐÁM MÂY REALTIME TỰ ĐỘNG
         database.ref('products').on('value', (snapshot) => {
             const data = snapshot.val();
             if (!data) {
@@ -249,6 +252,14 @@
                     renderStarsInput(updatedProd.rating || 5);
                 }
             }
+        }, (error) => {
+            console.error(error);
+            productGrid.innerHTML = `
+                <div class="col-span-full text-center py-12 text-red-600 font-bold">
+                    <i class="fa-solid fa-triangle-exclamation mr-2"></i> Lỗi kết nối đám mây! <br>
+                    <span class="text-xs font-normal text-stone-500">Hãy kiểm tra xem tab Règles bên Firebase đã bấm nút Publier chưa nhé!</span>
+                </div>
+            `;
         });
 
         function renderGridByFilter() {
@@ -273,7 +284,7 @@
                 card.className = "bg-white rounded-2xl shadow-sm overflow-hidden border border-stone-200 flex flex-col justify-between hover:shadow-md transition duration-200";
                 card.innerHTML = `
                     <div>
-                        <div class="relative">
+                        <div class="relative bg-stone-100">
                             <img id="img-prod-${prod.id}" src="${prod.image}" alt="${prod.name}" class="w-full product-image" onerror="this.src='https://images.pexels.com/photos/2233729/pexels-photo-2233729.jpeg?auto=compress&cs=tinysrgb&w=300'">
                             <span class="absolute top-2 left-2 bg-red-600 text-white text-xs font-black px-2.5 py-1 rounded-md shadow">Mới Nóng</span>
                         </div>
@@ -284,8 +295,4 @@
                                     <i class="fa-regular fa-comment-dots"></i> ${commentLength} nhận xét
                                 </button>
                             </div>
-                            <h3 class="font-bold text-stone-900 text-base line-clamp-2 min-h-[2.8rem] mb-1">${prod.name}</h3>
-                            
-                            <div class="flex items-center justify-between mt-2 mb-3">
-                                <p class="text-red-600 font-extrabold text-lg">${prod.price.toLocaleString('vi-VN')} đ</p>
-                                <button onclick="likeProduct(${prod.id})" class="flex items-center gap-1 text-
+                            <h3 class="font-bold text-ston
