@@ -1,0 +1,43 @@
+name: Deploy Tùng Quay Heo to GitHub Pages
+
+on:
+  # Chạy workflow mỗi khi có push lên nhánh chính (main)
+  push:
+    branches: ["main"]
+
+  # Cho phép kích hoạt thủ công từ tab Actions trên GitHub
+  workflow_dispatch:
+
+# Phân quyền cần thiết để GitHub Pages hoạt động
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Đảm bảo chỉ có một tiến trình deploy chạy tại một thời điểm
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout mã nguồn
+        uses: actions/checkout@v4
+
+      - name: Thiết lập GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Tải lên tệp tĩnh (Artifact)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Thư mục gốc chứa tệp index.html
+          path: '.'
+
+      - name: Triển khai lên GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
